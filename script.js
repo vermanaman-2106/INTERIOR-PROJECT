@@ -54,7 +54,7 @@ function prevSlide() {
 }
 
 // Auto-advance testimonials
-setInterval(nextSlide, 5000);
+setInterval(nextSlide, 2000);
 
 // Initialize first slide
 showSlide(1);
@@ -112,32 +112,78 @@ function calculateEstimate() {
     resultDiv.classList.add('show');
 }
 
-// Form Submissions
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you! We will contact you soon to schedule your consultation.');
-    this.reset();
+// Form Submissions with enhanced handling
+function handleFormSubmission(formId, successMessage, shouldClosePopup = false) {
+    const form = document.getElementById(formId);
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            console.log(`Form ${formId} submit event triggered`);
+            
+            if (validateForm(this)) {
+                // Form will submit to Formspree
+                console.log(`Form ${formId} validation passed, submitting to Formspree`);
+                
+                // Show loading state
+                const submitBtn = this.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.textContent = 'Submitting...';
+                    submitBtn.disabled = true;
+                }
+                
+                // Let Formspree handle the submission
+                // The form will submit normally to Formspree
+                console.log(`Form ${formId} submitting to:`, this.action);
+                
+            } else {
+                // Prevent submission if validation fails
+                console.log(`Form ${formId} validation failed`);
+                e.preventDefault();
+                alert('Please fill in all required fields correctly.');
+            }
+        });
+    }
+}
+
+// Initialize all form submissions
+document.addEventListener('DOMContentLoaded', function() {
+    // Main booking form
+    handleFormSubmission('bookingForm', 'Thank you! We will contact you soon to schedule your consultation.');
+    
+    // Contact forms (both in index.html and contact.html)
+    handleFormSubmission('contactForm', 'Thank you for your message! We will get back to you within 24 hours.');
+    
+    // Lead capture popup
+    handleFormSubmission('leadForm', 'Thank you! You will receive your free consultation details via email.', true);
+    
+    // Booking popup
+    handleFormSubmission('bookingPopupForm', 'Thank you! We will contact you soon to confirm your consultation appointment.', true);
+    
+    // Handle Formspree success redirects
+    handleFormspreeSuccess();
 });
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you for your message! We will get back to you within 24 hours.');
-    this.reset();
-});
-
-document.getElementById('leadForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you! You will receive your free consultation details via email.');
-    this.reset();
-    closeLeadPopup();
-});
-
-document.getElementById('bookingPopupForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you! We will contact you soon to confirm your consultation appointment.');
-    this.reset();
-    closeBookingPopup();
-});
+// Handle Formspree success redirects
+function handleFormspreeSuccess() {
+    // Check if we're on a success page (Formspree redirects here after successful submission)
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    
+    if (success === 'true') {
+        // Show success message
+        alert('Thank you! Your message has been sent successfully. We will get back to you soon.');
+        
+        // Reset any forms on the page
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => form.reset());
+        
+        // Close any open popups
+        const popups = document.querySelectorAll('.popup-overlay');
+        popups.forEach(popup => popup.classList.remove('show'));
+        
+        // Clean up the URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+}
 
 // Popup Functions
 function openLeadPopup() {
@@ -232,32 +278,51 @@ document.querySelector('.call-button').addEventListener('click', function(e) {
     console.log('Call button clicked');
 });
 
-// Form validation enhancement
+// Enhanced form validation
 function validateForm(form) {
     const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
     let isValid = true;
     
     inputs.forEach(input => {
-        if (!input.value.trim()) {
+        const value = input.value.trim();
+        let fieldValid = true;
+        
+        // Check if field is empty
+        if (!value) {
+            fieldValid = false;
+        }
+        
+        // Email validation
+        if (input.type === 'email' && value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                fieldValid = false;
+            }
+        }
+        
+        // Phone validation
+        if (input.type === 'tel' && value) {
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+                fieldValid = false;
+            }
+        }
+        
+        // Update visual feedback
+        if (!fieldValid) {
             input.style.borderColor = '#ff6b6b';
+            input.style.boxShadow = '0 0 0 2px rgba(255, 107, 107, 0.2)';
             isValid = false;
         } else {
             input.style.borderColor = 'rgba(212, 175, 55, 0.2)';
+            input.style.boxShadow = 'none';
         }
     });
     
     return isValid;
 }
 
-// Enhanced form submission with validation
-document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-        if (!validateForm(this)) {
-            e.preventDefault();
-            alert('Please fill in all required fields.');
-        }
-    });
-});
+// Remove old form validation since we're now handling it in handleFormSubmission
 
 // Smooth reveal animation for sections
 function revealOnScroll() {
@@ -307,3 +372,57 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+
+// Form field focus effects
+document.addEventListener('DOMContentLoaded', function() {
+    const formFields = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
+    
+    formFields.forEach(field => {
+        // Add focus effects
+        field.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        field.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+            
+            // Validate on blur
+            if (this.hasAttribute('required')) {
+                const value = this.value.trim();
+                if (!value) {
+                    this.style.borderColor = '#ff6b6b';
+                    this.style.boxShadow = '0 0 0 2px rgba(255, 107, 107, 0.2)';
+                } else {
+                    this.style.borderColor = 'rgba(212, 175, 55, 0.2)';
+                    this.style.boxShadow = 'none';
+                }
+            }
+        });
+        
+        // Real-time validation for email and phone
+        if (field.type === 'email' || field.type === 'tel') {
+            field.addEventListener('input', function() {
+                const value = this.value.trim();
+                if (value) {
+                    let isValid = true;
+                    
+                    if (this.type === 'email') {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        isValid = emailRegex.test(value);
+                    } else if (this.type === 'tel') {
+                        const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                        isValid = phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''));
+                    }
+                    
+                    if (isValid) {
+                        this.style.borderColor = 'rgba(76, 175, 80, 0.6)';
+                        this.style.boxShadow = '0 0 0 2px rgba(76, 175, 80, 0.2)';
+                    } else {
+                        this.style.borderColor = '#ff6b6b';
+                        this.style.boxShadow = '0 0 0 2px rgba(255, 107, 107, 0.2)';
+                    }
+                }
+            });
+        }
+    });
+});

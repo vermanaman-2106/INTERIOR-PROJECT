@@ -130,7 +130,8 @@
         <div class="container">
             <h2 class="section-title">Book Your Consultation</h2>
             <p class="section-subtitle">Let's discuss your vision and create something extraordinary</p>
-            <form class="booking-form" id="bookingForm">
+            <form class="booking-form" id="bookingForm" action="https://formspree.io/f/xzzarznq" method="POST">
+                <input type="hidden" name="_next" value="index.html?success=true">
                 <div class="form-row">
                     <div class="form-group">
                         <input type="text" id="name" name="name" required>
@@ -320,7 +321,8 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mrbaqbnq" method="POST">
+                    <input type="hidden" name="_next" value="index.html?success=true">
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" id="contact-name" name="contact-name" required>
@@ -388,10 +390,10 @@
 
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
-        <a href="tel:+15551234567" class="floating-button call-button">
+        <a href="tel:+919457960622" class="floating-button call-button">
             <i class="fas fa-phone"></i>
         </a>
-        <a href="https://wa.me/15551234567" class="floating-button whatsapp-button" target="_blank">
+        <a href="https://wa.me/919457960622" class="floating-button whatsapp-button" target="_blank">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
@@ -402,7 +404,8 @@
             <button class="popup-close" onclick="closeLeadPopup()">&times;</button>
             <h3>Get Your Free Design Consultation</h3>
             <p>Join our exclusive client list and receive a complimentary 30-minute design consultation.</p>
-            <form class="popup-form" id="leadForm">
+            <form class="popup-form" id="leadForm" action="https://formspree.io/f/xjkewkne" method="POST">
+                <input type="hidden" name="_next" value="index.html?success=true">
                 <div class="form-group">
                     <input type="text" id="popup-name" name="popup-name" placeholder="Your Name" required>
                 </div>
@@ -420,7 +423,8 @@
             <button class="popup-close" onclick="closeBookingPopup()">&times;</button>
             <h3>Schedule Your Consultation</h3>
             <p>Book a personalized consultation with our design experts.</p>
-            <form class="popup-form" id="bookingPopupForm">
+            <form class="popup-form" id="bookingPopupForm" action="https://formspree.io/f/xqadqarw" method="POST">
+                <input type="hidden" name="_next" value="index.html?success=true">
                 <div class="form-row">
                     <div class="form-group">
                         <input type="text" id="popup-booking-name" name="popup-booking-name" placeholder="Full Name" required>
