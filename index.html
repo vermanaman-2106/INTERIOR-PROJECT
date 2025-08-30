@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Interiors - Premium Interior Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>LUXE</h2>
+                    <span>INTERIORS</span>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop>
+            <source src="backgroung-heroundefined.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Your Space</h1>
+                <p class="hero-subtitle">Where luxury meets functionality in every detail</p>
+                <button class="cta-button" onclick="openBookingForm()">Book Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram-section">
+        <div class="container">
+            <h2 class="section-title">Follow Our Journey</h2>
+            <p class="section-subtitle">Discover our latest projects and design inspirations</p>
+            <div class="instagram-grid">
+                <div class="instagram-item">
+                    <img src="spacejoy-9M66C_w_ToM-unsplash.jpg" alt="Modern Living Room">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="spacejoy-h2_3dL9yLpU-unsplash.jpg" alt="Elegant Kitchen">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="spacejoy-IH7wPsjwomc-unsplash.jpg" alt="Luxury Bedroom">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="instagram-item">
+                    <img src="spacejoy-OlFHzNjg9kY-unsplash.jpg" alt="Contemporary Design">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="instagram-link">@luxeinteriors</a>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-item active">
+                    <div class="testimonial-content">
+                        <p>"Luxe Interiors transformed our home into a masterpiece. Every detail was perfect."</p>
+                        <div class="testimonial-author">
+                            <h4>Sarah Johnson</h4>
+                            <span>CEO, TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"The attention to detail and luxury finish exceeded all our expectations."</p>
+                        <div class="testimonial-author">
+                            <h4>Michael Chen</h4>
+                            <span>Entrepreneur</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Professional, creative, and delivered beyond our wildest dreams."</p>
+                        <div class="testimonial-author">
+                            <h4>Emma Rodriguez</h4>
+                            <span>Interior Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Booking Section -->
+    <section class="booking-section">
+        <div class="container">
+            <h2 class="section-title">Book Your Consultation</h2>
+            <p class="section-subtitle">Let's discuss your vision and create something extraordinary</p>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required>
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="project-type" name="project-type" required>
+                            <option value="">Select Project Type</option>
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="renovation">Renovation</option>
+                            <option value="new-construction">New Construction</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Schedule Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Price Estimator Section -->
+    <section class="estimator-section">
+        <div class="container">
+            <h2 class="section-title">Project Cost Estimator</h2>
+            <p class="section-subtitle">Get a rough estimate for your interior design project</p>
+            <div class="estimator-form">
+                <div class="estimator-row">
+                    <div class="estimator-group">
+                        <label>Project Type</label>
+                        <select id="estimator-type">
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="renovation">Renovation</option>
+                        </select>
+                    </div>
+                    <div class="estimator-group">
+                        <label>Square Footage</label>
+                        <input type="number" id="square-footage" placeholder="e.g., 2000">
+                    </div>
+                </div>
+                <div class="estimator-row">
+                    <div class="estimator-group">
+                        <label>Design Style</label>
+                        <select id="design-style">
+                            <option value="modern">Modern</option>
+                            <option value="traditional">Traditional</option>
+                            <option value="luxury">Luxury</option>
+                            <option value="minimalist">Minimalist</option>
+                        </select>
+                    </div>
+                    <div class="estimator-group">
+                        <label>Timeline</label>
+                        <select id="timeline">
+                            <option value="3-6">3-6 months</option>
+                            <option value="6-12">6-12 months</option>
+                            <option value="12+">12+ months</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="estimate-button" onclick="calculateEstimate()">Calculate Estimate</button>
+                <div class="estimate-result" id="estimateResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Luxe Interiors</h2>
+                    <p>We are a premier interior design studio specializing in creating luxurious, functional spaces that reflect our clients' unique vision and lifestyle.</p>
+                    <p>With over 15 years of experience in high-end residential and commercial projects, our team combines creativity with technical expertise to deliver exceptional results.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>150+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                        <div class="stat">
+                            <h3>98%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="jason-wang-NxAwryAbtIw-unsplash.jpg" alt="Our Team at Work">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Our Projects</h2>
+            <p class="section-subtitle">Explore our portfolio of exceptional interior design projects</p>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <img src="spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="Modern Living Space">
+                    <div class="project-overlay">
+                        <h3>Modern Living Space</h3>
+                        <p>Contemporary design with luxury finishes</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="spacejoy-umAXneH4GhA-unsplash.jpg" alt="Elegant Kitchen">
+                    <div class="project-overlay">
+                        <h3>Elegant Kitchen</h3>
+                        <p>Functional luxury meets aesthetic perfection</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="jason-briscoe-AQl-J19ocWE-unsplash.jpg" alt="Luxury Bedroom">
+                    <div class="project-overlay">
+                        <h3>Luxury Bedroom</h3>
+                        <p>Serene retreat with premium materials</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="jason-wang-5MG8cQbw-T8-unsplash.jpg" alt="Contemporary Office">
+                    <div class="project-overlay">
+                        <h3>Contemporary Office</h3>
+                        <p>Professional workspace with style</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg" alt="Minimalist Bathroom">
+                    <div class="project-overlay">
+                        <h3>Minimalist Bathroom</h3>
+                        <p>Clean lines and luxury fixtures</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <img src="jason-briscoe-UV81E0oXXWQ-unsplash.jpg" alt="Open Concept Living">
+                    <div class="project-overlay">
+                        <h3>Open Concept Living</h3>
+                        <p>Spacious and sophisticated design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Ready to start your transformation? Let's connect.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>123 Luxury Lane, Design District<br>New York, NY 10001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>hello@luxeinteriors.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" name="contact-name" required>
+                            <label for="contact-name">Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" name="contact-email" required>
+                            <label for="contact-email">Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contact-message" name="contact-message" rows="5" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LUXE INTERIORS</h3>
+                    <p>Creating extraordinary spaces that inspire and delight.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Interior Design</li>
+                        <li>Space Planning</li>
+                        <li>Custom Furniture</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luxe Interiors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:+15551234567" class="floating-button call-button">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/15551234567" class="floating-button whatsapp-button" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Lead Capture Popup -->
+    <div class="popup-overlay" id="leadPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeLeadPopup()">&times;</button>
+            <h3>Get Your Free Design Consultation</h3>
+            <p>Join our exclusive client list and receive a complimentary 30-minute design consultation.</p>
+            <form class="popup-form" id="leadForm">
+                <div class="form-group">
+                    <input type="text" id="popup-name" name="popup-name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="popup-email" name="popup-email" placeholder="Your Email" required>
+                </div>
+                <button type="submit" class="popup-submit">Get Free Consultation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Form Popup -->
+    <div class="popup-overlay" id="bookingPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeBookingPopup()">&times;</button>
+            <h3>Schedule Your Consultation</h3>
+            <p>Book a personalized consultation with our design experts.</p>
+            <form class="popup-form" id="bookingPopupForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="popup-booking-name" name="popup-booking-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="popup-booking-email" name="popup-booking-email" placeholder="Email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="popup-booking-phone" name="popup-booking-phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select id="popup-booking-date" name="popup-booking-date" required>
+                        <option value="">Preferred Date</option>
+                        <option value="tomorrow">Tomorrow</option>
+                        <option value="this-week">This Week</option>
+                        <option value="next-week">Next Week</option>
+                    </select>
+                </div>
+                <button type="submit" class="popup-submit">Schedule Consultation</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
