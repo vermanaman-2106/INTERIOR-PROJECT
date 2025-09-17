@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Projects - Luxe Interiors</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//formspree.io">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- Navigation -->
@@ -64,7 +70,7 @@
         <div class="container">
             <div class="projects-grid">
                 <div class="project-item" data-category="residential luxury">
-                    <img src="spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="Modern Living Space">
+                    <img src="spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="Modern Living Space" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Modern Living Space</h3>
                         <p>Contemporary design with luxury finishes</p>
@@ -72,7 +78,7 @@
                     </div>
                 </div>
                 <div class="project-item" data-category="residential modern">
-                    <img src="spacejoy-umAXneH4GhA-unsplash.jpg" alt="Elegant Kitchen">
+                    <img src="spacejoy-umAXneH4GhA-unsplash.jpg" alt="Elegant Kitchen" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Elegant Kitchen</h3>
                         <p>Functional luxury meets aesthetic perfection</p>
@@ -80,7 +86,7 @@
                     </div>
                 </div>
                 <div class="project-item" data-category="residential luxury">
-                    <img src="jason-briscoe-AQl-J19ocWE-unsplash.jpg" alt="Luxury Bedroom">
+                    <img src="jason-briscoe-AQl-J19ocWE-unsplash.jpg" alt="Luxury Bedroom" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Luxury Bedroom</h3>
                         <p>Serene retreat with premium materials</p>
@@ -88,7 +94,7 @@
                     </div>
                 </div>
                 <div class="project-item" data-category="commercial modern">
-                    <img src="jason-wang-5MG8cQbw-T8-unsplash.jpg" alt="Contemporary Office">
+                    <img src="jason-wang-5MG8cQbw-T8-unsplash.jpg" alt="Contemporary Office" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Contemporary Office</h3>
                         <p>Professional workspace with style</p>
@@ -96,7 +102,7 @@
                     </div>
                 </div>
                 <div class="project-item" data-category="residential modern">
-                    <img src="alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg" alt="Minimalist Bathroom">
+                    <img src="alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg" alt="Minimalist Bathroom" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Minimalist Bathroom</h3>
                         <p>Clean lines and luxury fixtures</p>
@@ -104,7 +110,7 @@
                     </div>
                 </div>
                 <div class="project-item" data-category="residential luxury">
-                    <img src="jason-briscoe-UV81EoXXWQ-unsplash.jpg" alt="Open Concept Living">
+                    <img src="jason-briscoe-UV81EoXXWQ-unsplash.jpg" alt="Open Concept Living" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Open Concept Living</h3>
                         <p>Spacious and sophisticated design</p>
@@ -112,7 +118,7 @@
                     </div>
                 </div>
                 <div class="project-item" data-category="commercial luxury">
-                    <img src="spacejoy-IH7wPsjwomc-unsplash.jpg" alt="Luxury Hotel Lobby">
+                    <img src="spacejoy-IH7wPsjwomc-unsplash.jpg" alt="Luxury Hotel Lobby" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Luxury Hotel Lobby</h3>
                         <p>Opulent entrance with premium finishes</p>
@@ -120,7 +126,7 @@
                     </div>
                 </div>
                 <div class="project-item" data-category="residential modern">
-                    <img src="spacejoy-OlFHzNjg9kY-unsplash.jpg" alt="Contemporary Dining">
+                    <img src="spacejoy-OlFHzNjg9kY-unsplash.jpg" alt="Contemporary Dining" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Contemporary Dining</h3>
                         <p>Elegant dining space with modern flair</p>
@@ -202,6 +208,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

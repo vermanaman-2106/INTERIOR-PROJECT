@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Luxe Interiors</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//formspree.io">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- Navigation -->
@@ -79,7 +85,7 @@
                     </ul>
                 </div>
                 <div class="about-image">
-                    <img src="jason-wang-NxAwryAbtIw-unsplash.jpg" alt="Our Design Studio">
+                    <img src="jason-wang-NxAwryAbtIw-unsplash.jpg" alt="Our Design Studio" loading="lazy" width="600" height="400">
                 </div>
             </div>
         </div>
@@ -141,7 +147,7 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="jason-wang-5MG8cQbw-T8-unsplash.jpg" alt="Sarah Mitchell">
+                        <img src="jason-wang-5MG8cQbw-T8-unsplash.jpg" alt="Sarah Mitchell" loading="lazy" width="150" height="150">
                     </div>
                     <h3>Sarah Mitchell</h3>
                     <p class="team-role">Founder & Creative Director</p>
@@ -153,7 +159,7 @@
                 </div>
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="jason-wang-8J49mtYWu7E-unsplash.jpg" alt="Michael Chen">
+                        <img src="jason-wang-8J49mtYWu7E-unsplash.jpg" alt="Michael Chen" loading="lazy" width="150" height="150">
                     </div>
                     <h3>Michael Chen</h3>
                     <p class="team-role">Senior Designer</p>
@@ -165,7 +171,7 @@
                 </div>
                 <div class="team-member">
                     <div class="team-photo">
-                        <img src="alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg" alt="Emma Rodriguez">
+                        <img src="alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg" alt="Emma Rodriguez" loading="lazy" width="150" height="150">
                     </div>
                     <h3>Emma Rodriguez</h3>
                     <p class="team-role">Project Manager</p>
@@ -325,6 +331,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

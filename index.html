@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luxe Interiors - Premium interior design services creating extraordinary spaces that inspire and delight. Transform your space with our luxury design expertise.">
+    <meta name="keywords" content="interior design, luxury design, home decor, space planning, custom furniture, design consultation">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Luxe Interiors">
     <title>Luxe Interiors - Premium Interior Design</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Critical CSS for above-the-fold content */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #ffffff; background-color: #0a0a0a; overflow-x: hidden; }
+        .navbar { position: fixed; top: 0; width: 100%; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(20px); z-index: 1000; transition: all 0.3s ease; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .nav-logo { display: flex; align-items: center; gap: 1rem; cursor: pointer; transition: all 0.3s ease; }
+        .logo-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+        .logo-icon i { font-size: 1.5rem; color: #000000; }
+        .logo-text h2 { font-size: 2rem; color: #d4af37; margin: 0; font-weight: 700; letter-spacing: 1px; }
+        .logo-text span { font-size: 0.9rem; color: #ffffff; letter-spacing: 3px; font-weight: 400; text-transform: uppercase; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-link { color: #ffffff; text-decoration: none; font-weight: 400; transition: all 0.3s ease; position: relative; }
+        .hero { min-height: 100vh; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; text-align: center; width: 100%; padding: 80px 0; }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+        .hero-overlay { position: relative; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.5) 50%, rgba(10, 10, 10, 0.7) 100%); z-index: 1; display: flex; align-items: center; justify-content: center; }
+        .hero-content { text-align: center; z-index: 2; animation: fadeInUp 1s ease-out; position: relative; max-width: 800px; padding: 2rem; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.3); border-radius: 20px; backdrop-filter: blur(5px); }
+        .hero-title { font-size: 4rem; margin-bottom: 1.5rem; color: #ffffff; font-weight: 700; text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); letter-spacing: 2px; line-height: 1.1; }
+        .hero-subtitle { font-size: 1.8rem; color: #ffffff; margin-bottom: 2.5rem; font-weight: 400; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); letter-spacing: 1px; }
+        .cta-button { background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #000000; border: none; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .hero-title { font-size: 2.5rem; } .hero-subtitle { font-size: 1.2rem; } }
+    </style>
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//formspree.io">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- Navigation -->
@@ -37,7 +71,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video class="hero-video" autoplay muted loop>
+        <video class="hero-video" autoplay muted loop preload="metadata" poster="spacejoy-9M66C_w_ToM-unsplash.jpg">
             <source src="backgroung-heroundefined.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay">
@@ -56,25 +90,25 @@
             <p class="section-subtitle">Discover our latest projects and design inspirations</p>
             <div class="instagram-grid">
                 <div class="instagram-item">
-                    <img src="spacejoy-9M66C_w_ToM-unsplash.jpg" alt="Modern Living Room">
+                    <img src="spacejoy-9M66C_w_ToM-unsplash.jpg" alt="Modern Living Room" loading="lazy" width="300" height="250">
                     <div class="instagram-overlay">
                         <i class="fab fa-instagram"></i>
                     </div>
                 </div>
                 <div class="instagram-item">
-                    <img src="spacejoy-h2_3dL9yLpU-unsplash.jpg" alt="Elegant Kitchen">
+                    <img src="spacejoy-h2_3dL9yLpU-unsplash.jpg" alt="Elegant Kitchen" loading="lazy" width="300" height="250">
                     <div class="instagram-overlay">
                         <i class="fab fa-instagram"></i>
                     </div>
                 </div>
                 <div class="instagram-item">
-                    <img src="spacejoy-IH7wPsjwomc-unsplash.jpg" alt="Luxury Bedroom">
+                    <img src="spacejoy-IH7wPsjwomc-unsplash.jpg" alt="Luxury Bedroom" loading="lazy" width="300" height="250">
                     <div class="instagram-overlay">
                         <i class="fab fa-instagram"></i>
                     </div>
                 </div>
                 <div class="instagram-item">
-                    <img src="spacejoy-OlFHzNjg9kY-unsplash.jpg" alt="Contemporary Design">
+                    <img src="spacejoy-OlFHzNjg9kY-unsplash.jpg" alt="Contemporary Design" loading="lazy" width="300" height="250">
                     <div class="instagram-overlay">
                         <i class="fab fa-instagram"></i>
                     </div>
@@ -234,7 +268,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="jason-wang-NxAwryAbtIw-unsplash.jpg" alt="Our Team at Work">
+                    <img src="jason-wang-NxAwryAbtIw-unsplash.jpg" alt="Our Team at Work" loading="lazy" width="600" height="400">
                 </div>
             </div>
         </div>
@@ -247,42 +281,42 @@
             <p class="section-subtitle">Explore our portfolio of exceptional interior design projects</p>
             <div class="projects-grid">
                 <div class="project-item">
-                    <img src="spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="Modern Living Space">
+                    <img src="spacejoy-PyeXkOVmG1Y-unsplash.jpg" alt="Modern Living Space" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Modern Living Space</h3>
                         <p>Contemporary design with luxury finishes</p>
                     </div>
                 </div>
                 <div class="project-item">
-                    <img src="spacejoy-umAXneH4GhA-unsplash.jpg" alt="Elegant Kitchen">
+                    <img src="spacejoy-umAXneH4GhA-unsplash.jpg" alt="Elegant Kitchen" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Elegant Kitchen</h3>
                         <p>Functional luxury meets aesthetic perfection</p>
                     </div>
                 </div>
                 <div class="project-item">
-                    <img src="jason-briscoe-AQl-J19ocWE-unsplash.jpg" alt="Luxury Bedroom">
+                    <img src="jason-briscoe-AQl-J19ocWE-unsplash.jpg" alt="Luxury Bedroom" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Luxury Bedroom</h3>
                         <p>Serene retreat with premium materials</p>
                     </div>
                 </div>
                 <div class="project-item">
-                    <img src="jason-wang-5MG8cQbw-T8-unsplash.jpg" alt="Contemporary Office">
+                    <img src="jason-wang-5MG8cQbw-T8-unsplash.jpg" alt="Contemporary Office" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Contemporary Office</h3>
                         <p>Professional workspace with style</p>
                     </div>
                 </div>
                 <div class="project-item">
-                    <img src="alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg" alt="Minimalist Bathroom">
+                    <img src="alberto-castillo-q-mx4mSkK9zeo-unsplash.jpg" alt="Minimalist Bathroom" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Minimalist Bathroom</h3>
                         <p>Clean lines and luxury fixtures</p>
                     </div>
                 </div>
                 <div class="project-item">
-                    <img src="jason-briscoe-UV81E0oXXWQ-unsplash.jpg" alt="Open Concept Living">
+                    <img src="jason-briscoe-UV81E0oXXWQ-unsplash.jpg" alt="Open Concept Living" loading="lazy" width="400" height="300">
                     <div class="project-overlay">
                         <h3>Open Concept Living</h3>
                         <p>Spacious and sophisticated design</p>
@@ -449,6 +483,57 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Performance optimization script
+        (function() {
+            // Preload critical images
+            const criticalImages = [
+                'spacejoy-9M66C_w_ToM-unsplash.jpg',
+                'spacejoy-h2_3dL9yLpU-unsplash.jpg'
+            ];
+            
+            criticalImages.forEach(src => {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            });
+            
+            // Optimize video loading
+            const video = document.querySelector('.hero-video');
+            if (video) {
+                video.addEventListener('loadstart', function() {
+                    this.style.opacity = '0';
+                });
+                video.addEventListener('canplay', function() {
+                    this.style.opacity = '1';
+                    this.style.transition = 'opacity 0.5s ease';
+                });
+            }
+            
+            // Intersection Observer for lazy loading
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            img.classList.remove('lazy');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+        })();
+    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>

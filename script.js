@@ -361,13 +361,26 @@ if ('IntersectionObserver' in window) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                img.src = img.dataset.src;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                }
                 img.classList.remove('lazy');
+                img.classList.add('loaded');
                 imageObserver.unobserve(img);
             }
         });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
     });
     
+    // Observe all lazy-loaded images
+    document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        imageObserver.observe(img);
+    });
+    
+    // Also observe images with data-src for backward compatibility
     document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
     });
